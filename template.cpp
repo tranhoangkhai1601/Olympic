@@ -12,7 +12,7 @@ using namespace std;
 #define pb push_back
 const ll max_VAL = INT_MAX;
 const ll min_VAL = INT_MIN;
-const int MOD = 1e9 + 7;
+const ll MOD = 1e9 + 7;
 
 #define getMax(a, b) ((a > b) ? a : b)
 #define getMin(a, b) ((a > b) ? b : a)
