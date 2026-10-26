@@ -5,26 +5,28 @@ using namespace std;
 int select_pivot(vector<int> &arr, int l, int r) {
     int pivot = arr[r], i = l - 1;
 
-    for (int j = l; j < r; j++) {
-        if (arr[j] <= pivot) {
+    for(int j = l; j < r; j++) {
+        if (arr[j] < arr[r]) {
             i++;
             swap(arr[i], arr[j]);
         }
     }
+
     i++;
     swap(arr[i], arr[r]);
     return i;
 }
 
-void quick_sort(vector<int> &arr, int l, int r) {
-    if (l >= r) {return;}
-
+void quicksort(vector<int> &arr, int l, int r) {
+    if (l >= r) {
+        return;
+    }
     int pos = select_pivot(arr, l, r);
     if (l < pos - 1) {
-        quick_sort(arr, l, pos - 1);
+        quicksort(arr, l, pos - 1);
     }
     if (r > pos + 1) {
-        quick_sort(arr, pos + 1, r);
+        quicksort(arr, pos + 1, r);
     }
 }
 
@@ -38,7 +40,7 @@ int main() {
         cin >> arr[i];
     }
 
-    quick_sort(arr, 0, arr.size() - 1);
+    quicksort(arr, 0, arr.size() - 1);
 
     for (int num : arr) {
         cout << num << " ";
